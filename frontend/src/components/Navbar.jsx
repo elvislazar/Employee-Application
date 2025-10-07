@@ -9,21 +9,19 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/login");
+    navigate("/login", { replace: true });
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-inner">
-        <div className="navbar-left" onClick={() => navigate("/employees")}>
+        <div className="navbar-left" onClick={() => navigate("/employees")} style={{ cursor: "pointer" }}>
           <h2>Employee App</h2>
         </div>
         {user && (
           <div className="navbar-right">
             <Link to="/employees" className="button">Employee</Link>
-            {user?.role === "admin" && (
-              <Link to="/add-employee" className="button">Add Employee</Link>
-            )}
+            {user?.role === "admin" && <Link to="/add-employee" className="button">Add Employee</Link>}
             <button className="button" onClick={handleLogout}>Logout</button>
           </div>
         )}
