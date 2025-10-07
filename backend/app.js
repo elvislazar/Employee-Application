@@ -8,19 +8,26 @@ const employeeRoutes = require('./routes/employeeRoutes');
 
 const app = express();
 
-// ✅ Allow only your frontend domain
-const cors = require('cors');
+app.use(express.json());
+
+// ✅ Configure CORS properly
 app.use(cors({
-  origin: '*', // allows anyone to access your API publicly
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+    "https://employee-application-client.vercel.app",
+    "https://employee-application-client-git-master-elvis-lazars-projects.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
-app.use(express.json());
+// ✅ Optional: Handle preflight requests manually for all routes
+app.options('*', cors());
 
 connectDB();
 
 app.get('/', (req, res) => res.send('Employee API running'));
+
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 
