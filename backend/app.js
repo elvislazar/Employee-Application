@@ -7,7 +7,16 @@ const authRoutes = require('./routes/authRoutes');
 const employeeRoutes = require('./routes/employeeRoutes');
 
 const app = express();
-app.use(cors());
+
+// ✅ Allow only your frontend domain
+app.use(
+  cors({
+    origin: "https://employee-application-client-git-master-elvis-lazars-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 connectDB();
