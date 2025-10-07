@@ -9,13 +9,12 @@ const employeeRoutes = require('./routes/employeeRoutes');
 const app = express();
 
 // ✅ Allow only your frontend domain
-app.use(
-  cors({
-    origin: "https://employee-application-client-f4hu79lp2-elvis-lazars-projects.vercel.app?_vercel_share=CGkKSJ4R63S3ONiAqunbjSes24EiNjzx",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+const cors = require('cors');
+app.use(cors({
+  origin: '*', // allows anyone to access your API publicly
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json());
 
