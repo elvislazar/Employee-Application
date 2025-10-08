@@ -35,6 +35,5 @@ app.get('/', (req, res) => res.send('Employee API running'));
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 
-// ✅ Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+// ✅ Export the Express app for Vercel
+module.exports = app;
