@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://employee-application-sigma.vercel.app/api", // backend API
+  baseURL: "https://employee-application-mu.vercel.app/api", // backend API
   withCredentials: false
 });
 
