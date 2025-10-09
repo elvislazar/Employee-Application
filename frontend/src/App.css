@@ -6,10 +6,11 @@
 }
 body {
   font-family: 'Inter', sans-serif;
-  background:#FFF8F0;
+  background: #FFF8F0;
   color: #4a281f;
   line-height: 1.5;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ===== Navbar ===== */
@@ -19,7 +20,7 @@ body {
   padding: 14px 32px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -27,21 +28,26 @@ body {
 
 .navbar-inner {
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .navbar-left h2 {
   cursor: pointer;
   color: #f1f5f9;
+  font-size: 1.4rem;
+  white-space: nowrap;
 }
 
 .navbar-right {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .button {
@@ -61,7 +67,7 @@ body {
   color: #D7BFAE;
 }
 
-/* ===== Main Content Full Width ===== */
+/* ===== Main Content ===== */
 .main-content {
   width: 100%;
   padding: 28px 40px;
@@ -84,9 +90,9 @@ body {
   background: white;
   padding: 36px 32px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   width: 100%;
-  max-width: 45%;
+  max-width: 400px;
   text-align: center;
 }
 
@@ -112,13 +118,13 @@ body {
 .auth-form input:focus {
   border-color: #6F4E37;
   outline: none;
-  box-shadow: 0 4px 12px rgba(59,130,246,0.15);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
 .auth-form button {
   margin-top: 6px;
   background: #6F4E37;
-  color:#e8dad1;
+  color: #e8dad1;
   border-radius: 8px;
   padding: 14px;
   border: none;
@@ -127,7 +133,7 @@ body {
 }
 
 .auth-form button:hover {
-  background: #6F4E37;
+  background: #4a281f;
 }
 
 .auth-footer {
@@ -147,9 +153,9 @@ body {
   background: white;
   padding: 28px;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   width: 100%;
-  max-width: 100%;
+  overflow-x: auto;
 }
 
 .page-title {
@@ -163,6 +169,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   table-layout: auto;
+  min-width: 600px;
 }
 
 .employee-table th,
@@ -189,7 +196,7 @@ body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .edit-button {
@@ -199,7 +206,7 @@ body {
 
 .edit-button:hover {
   background: #4a281f;
-  color:#e8dad1;
+  color: #e8dad1;
 }
 
 .delete-button {
@@ -211,35 +218,30 @@ body {
   background: #dc2626;
 }
 
-/* ===== Edit Form Inline ===== */
+/* ===== Edit Form ===== */
 .edit-form-container {
   margin-top: 24px;
   background: #e8dad1;
   padding: 22px;
   border-radius: 10px;
   max-width: 500px;
-  margin-left: auto;
-  margin-right: auto; /* Center the form */
+  margin: 24px auto;
 }
 
 .edit-form input {
   padding: 12px;
-  margin-bottom: 12px; /* Space between fields */
+  margin-bottom: 12px;
   border-radius: 6px;
   border: 1px solid #cbd5e1;
   width: 100%;
-  max-width: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; /* Center inputs */
 }
 
-/* Button container to keep buttons side by side */
 .button-group {
   display: flex;
-  gap: 12px; /* Space between buttons */
-  justify-content: center; /* Center buttons below inputs */
-  margin-top: 10px; /* Space above buttons */
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .edit-form button {
@@ -247,9 +249,8 @@ body {
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  flex: 1; /* Make both buttons same width */
-  max-width: 180px; /* Optional max width */
-  margin-left: 10px;
+  flex: 1;
+  max-width: 180px;
 }
 
 .save-button {
@@ -262,16 +263,15 @@ body {
   color: white;
 }
 
-
-/* ===== Add Employee Form Page ===== */
+/* ===== Add Employee Form ===== */
 .form-container {
   max-width: 500px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   background: white;
   padding: 36px;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .add-form input {
@@ -297,16 +297,22 @@ body {
   background: #4a281f;
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive Design ===== */
+
+/* Tablets */
 @media (max-width: 1024px) {
   .navbar-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
   .navbar-right {
     margin-top: 8px;
-    flex-wrap: wrap;
-    gap: 6px;
+    justify-content: center;
+    gap: 8px;
+  }
+  .main-content {
+    padding: 20px;
   }
   .employee-table th, .employee-table td {
     font-size: 0.9rem;
@@ -314,11 +320,36 @@ body {
   }
 }
 
+/* Mobiles */
 @media (max-width: 600px) {
-  .edit-form input,
+  .navbar-left h2 {
+    font-size: 1.2rem;
+  }
+  .auth-card {
+    padding: 24px 20px;
+    max-width: 90%;
+  }
+  .form-container, .edit-form-container {
+    width: 95%;
+    padding: 20px;
+  }
+  .auth-form input,
   .add-form input,
-  .auth-form input {
+  .edit-form input {
     font-size: 0.9rem;
     padding: 10px;
+  }
+  .auth-form button,
+  .add-form button,
+  .edit-form button {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+  .employee-table {
+    font-size: 0.85rem;
+  }
+  .button-group {
+    flex-direction: column;
+    align-items: center;
   }
 }
