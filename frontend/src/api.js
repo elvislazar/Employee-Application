@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://employee-application-mu.vercel.app/api", // backend API
+  baseURL: "https://employee-application-mu.vercel.app/api", 
   withCredentials: false
 });
 
-// Automatically attach JWT token
+
 API.interceptors.request.use(
   (req) => {
     const token = localStorage.getItem("token");

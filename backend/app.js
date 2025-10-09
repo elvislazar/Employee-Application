@@ -8,16 +8,12 @@ const employeeRoutes = require('./routes/employeeRoutes');
 
 const app = express();
 
-// ========================
-// Middleware
-// ========================
+
 app.use(express.json());
 
-// ========================
-// CORS Configuration
-// ========================
+
 const allowedOrigins = [
-  "http://localhost:5173", // Local dev
+  "http://localhost:5173", 
   "https://employee-application-client.vercel.app",
   "https://employee-application-client-git-master-elvis-lazars-projects.vercel.app"
 ];
@@ -35,24 +31,18 @@ app.use(cors({
   credentials: true
 }));
 
-// ========================
-// Connect to MongoDB
-// ========================
+
 connectDB();
 
-// ========================
-// Routes
-// ========================
+
 app.get('/', (req, res) => res.send('Employee API running'));
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 
-// ========================
-// Export for Vercel or local run
-// ========================
+
 module.exports = app;
 
-// If running locally, start server
+
 if (require.main === module) {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
